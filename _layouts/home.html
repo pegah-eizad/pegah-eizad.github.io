@@ -10,34 +10,109 @@ layout: default
   });
 </script>
 
-<div class="hero-section">
-  <div class="hero-text">
-    <h1 class="hero-name">{{ site.author }}</h1>
-    <p class="hero-tagline" id="typewriteText"></p>
-    <p class="hero-bio">{{ site.author_bio }}</p>
-  </div>
-  <div class="hero-photo">
-    <img class="author-profile-img" src="/assets/img/profile.jpg" alt="{{ site.author }}" />
-  </div>
-</div>
+<div class="resume-page">
 
-<div class="home-content-area">
-  <section class="posts-section">
-    <h2 class="section-label">Writing</h2>
-    <ul class="article-list">
-      {% for post in site.posts limit:5 %}
-      <li class="article-item">
-        <a href="{{post.url}}" class="article-item-link">
-          <span class="article-item-title">{{post.title}}</span>
-          <span class="article-item-meta">
-            <time datetime="{{ post.date }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
-            {% for cat in post.category limit:1 %}
-            <span class="article-tag">{{cat}}</span>
-            {% endfor %}
-          </span>
+  <div class="hero-section">
+    <div class="hero-photo">
+      <img class="author-profile-img" src="/assets/img/profile.jpg" alt="{{ site.author }}" />
+    </div>
+    <div class="hero-text">
+      <h1 class="hero-name">{{ site.author }}</h1>
+      <p class="hero-tagline" id="typewriteText"></p>
+      <p class="hero-bio">{{ site.author_bio }}</p>
+      <div class="social-links">
+        {% if site.github_username and site.github_username != "" %}
+        <a class="social-link" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" title="GitHub">
+          <i class="fab fa-github"></i>
         </a>
-      </li>
-      {% endfor %}
-    </ul>
-  </section>
+        {% endif %}
+        {% if site.linkedin_username and site.linkedin_username != "" %}
+        <a class="social-link" href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        {% endif %}
+        {% if site.twitter_username and site.twitter_username != "" %}
+        <a class="social-link" href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener" title="Twitter / X">
+          <i class="fab fa-twitter"></i>
+        </a>
+        {% endif %}
+        {% if site.google_scholar_url and site.google_scholar_url != "" %}
+        <a class="social-link" href="{{ site.google_scholar_url }}" target="_blank" rel="noopener" title="Google Scholar">
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+        {% endif %}
+        {% if site.author_email and site.author_email != "" %}
+        <a class="social-link" href="mailto:{{ site.author_email }}" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="resume-body">
+
+    {% if site.show_author_education_details %}
+    <div class="resume-section">
+      <div class="resume-section-label">Education</div>
+      <div class="resume-section-content">
+        {% for edu in site.author_education_details %}
+        {% if edu.visibility == true %}
+        <div class="resume-item">
+          <div class="resume-item-title">{{ edu.college_degree }}</div>
+          <div class="resume-item-subtitle">{{ edu.college_name }}</div>
+          <div class="resume-item-desc">{{ edu.description }}</div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if site.show_author_work_experiences %}
+    <div class="resume-section">
+      <div class="resume-section-label">Experience</div>
+      <div class="resume-section-content">
+        {% for exp in site.author_work_experiences %}
+        {% if exp.visibility == true %}
+        <div class="resume-item">
+          <div class="resume-item-title">{{ exp.designation }}</div>
+          <div class="resume-item-subtitle">{{ exp.company_name }}</div>
+          <div class="resume-item-desc">{{ exp.description }}</div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="resume-section">
+      <div class="resume-section-label">Skills</div>
+      <div class="resume-section-content resume-skills">
+        {%- include author_skills.html -%}
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <div class="resume-section-label">Writing</div>
+      <div class="resume-section-content">
+        <ul class="article-list">
+          {% for post in site.posts limit:5 %}
+          <li class="article-item">
+            <a href="{{post.url}}" class="article-item-link">
+              <span class="article-item-title">{{post.title}}</span>
+              <span class="article-item-meta">
+                <time datetime="{{ post.date }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
+                {% for cat in post.category limit:1 %}
+                <span class="article-tag">{{cat}}</span>
+                {% endfor %}
+              </span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </div>

@@ -24,7 +24,7 @@ urls:
 
 author_logo: icon.svg
 author: Pegah
-author_bio: I'm a protein engineer passionate about designing and engineering proteins for therapeutic and biotechnological applications.
+author_bio: Placeholder
 author_email: ""
 author_location: United States
 author_website_url: ""
@@ -54,16 +54,11 @@ author_project_details:
                 visibility: true
 
 # social links
-twitter_username: johndoe
-github_username:  pegah-eizad
-facebook_username: johndoe
-linkedin_username: johndoe
-behance_username: johndoe
-instagram_username: johndoe
-medium_username: johndoe
-telegram_username: johndoe
-dribbble_username: johndoe
-flickr_username: johndoe
+twitter_username: ""
+github_username: pegah-eizad
+linkedin_username: ""
+author_email: ""
+google_scholar_url: ""
 
 #for comments ( we got Disqus and Hyvor Commenting, uncomment the one you want to use )
 
