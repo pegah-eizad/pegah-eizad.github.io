@@ -266,14 +266,12 @@ header {
 }
 
 .card-title {
-    font-size: 0.8rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--primary-color) !important;
-    border-bottom: 2px solid var(--primary-color);
-    display: inline-block;
-    padding-bottom: 4px;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: var(--bold-color) !important;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 12px;
+    display: block;
     margin-bottom: 18px;
 }
 
@@ -395,8 +393,10 @@ header {
     align-items: center;
     gap: 56px;
     max-width: 900px;
-    margin: 64px auto 56px;
-    padding: 0 40px;
+    margin: 0 auto;
+    padding: 56px 40px 52px;
+    background: linear-gradient(135deg, #f0f6ff 0%, #ffffff 60%);
+    border-bottom: 1px solid var(--light-border-color);
 }
 
 .hero-photo {
@@ -404,16 +404,16 @@ header {
 }
 
 .hero-photo .author-profile-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 190px;
+    height: 190px;
+    border-radius: 14px;
     object-fit: cover;
-    box-shadow: 0 6px 28px rgba(0, 112, 192, 0.14);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
     transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .hero-photo .author-profile-img:hover {
-    box-shadow: 0 10px 36px rgba(0, 112, 192, 0.22);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
     transform: scale(1.02);
 }
 
@@ -457,15 +457,14 @@ header {
 }
 
 .section-label {
-    font-size: 0.8rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--primary-color) !important;
-    border-bottom: 2px solid var(--primary-color);
-    display: inline-block;
-    padding-bottom: 4px;
-    margin-bottom: 28px;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px;
+    color: var(--bold-color) !important;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 12px;
+    display: block;
+    margin-bottom: 24px;
 }
 
 .article-list {
@@ -540,11 +539,13 @@ header {
 
 @media (max-width: 768px) {
     .hero-section {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: column-reverse;
         gap: 28px;
-        margin: 36px auto 40px;
-        padding: 0 24px;
+        padding: 36px 24px 40px;
+    }
+    .hero-photo .author-profile-img {
+        width: 140px;
+        height: 140px;
     }
     .hero-bio {
         max-width: 100%;
