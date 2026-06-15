@@ -1,7 +1,7 @@
-title: Spilt Coffee Dev
+title: Pegah Eizad
 subtitle:
 description: >- # this means to ignore newlines until "baseurl:"
-  
+
 
 url: "" # the base hostname & protocol for your site, e.g. https://example.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -26,45 +26,34 @@ urls:
 
 author_logo: icon.svg
 author: Pegah
-author_bio: I'm a software consultant and Full Stack Web Developer. My passions are Web and Mobile UI development ⚡ App Architecture ⚡ business development and strategy ⚡ 
+author_bio: I'm a protein engineer passionate about designing and engineering proteins for therapeutic and biotechnological applications.
 author_email: ""
 author_location: United States
-author_website_url: "http://johndoe.com"
-typewrite-text: I am a full stack web developer
+author_website_url: ""
+typewrite-text: I am a protein engineer
 
 author_work_experiences:
-            - company_name: Google
+            - company_name: Research Lab
               company_logo: google.png
-              company_url: https://google.com
-              designation: Software Engineer
-              description: Worked on various Google Products
-              visibility: true
-            - company_name: Microsoft
-              company_logo: microsoft.png
-              company_url: https://microsoft.com
-              designation: Azure Developer
-              description: Worked on various Azure Cloud Products
+              company_url: ""
+              designation: Protein Engineer
+              description: Protein design and engineering for therapeutic applications
               visibility: true
 
 author_education_details:
               - college_logo: mit.png
-                college_name: MIT
-                college_url: https://mit.org
-                college_degree: CS Engineer
-                description: Bachelor of Technology
+                college_name: University
+                college_url: ""
+                college_degree: Biochemistry / Bioengineering
+                description: Graduate Studies
                 visibility: true
 
 author_project_details:
-              - project_thumbnail: Redackt-hooks.png
-                project_title: Slacker Reddit
-                project_description: A slack skin for Reddit
-                project_url: https://github.com/Pegah-Eizad/Redackt-with-Hooks
+              - project_thumbnail: profile.jpg
+                project_title: Protein Design Project
+                project_description: Computational and experimental protein engineering
+                project_url: ""
                 visibility: true
-              - project_thumbnail: hack4r.PNG
-                project_title: Hack4r
-                project_description: A Platform built for Hackers and Penetration Testers
-                project_url: https://hack4r.com
-                visibility: false
 
 # social links
 twitter_username: johndoe
