@@ -9,37 +9,35 @@ layout: default
     });
   });
 </script>
-    <div class="jumbotron" style="text-align: center;">
-      <img class="author-profile-img" src="/assets/img/profile.jpg" />
-      <p class="jumbotron-heading">Hi, I'm {{site.author}}!</p>
-      <div class="lead-container"><p class="lead" id="typewriteText"></p></div>
-    </div>
-    <div class="col-lg-8 offset-md-2 home-article-summary">
-      <section id="recent-articles">
-        <div id="recent-articles-header">
-          <div id="recent-articles-title">
-            <h1 class="card-title">Recent Articles</h1>
-          </div>
-        </div>
-        <br />
 
-        <ul>
-          {% for post in site.posts limit:5 %}
-          <li class="article-card">
-            <a href="{{post.url}}" class="article-card-link">
-              <div id="article-container">
-                <div id="article-link">
-                    <p class="recent-article-link">{{post.title}} <span style="color: #ccc; font-size: 15px;"> - <i><time datetime="{{ post.date }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time></i>
-                        {% for cat in post.category limit:1 %}
-                        <button class="btn btn-sm btn-dark">{{cat}}</button>
-                       {% endfor %}
-                      </span>
-                    </p>
-                </div>
-              </div>
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-      </section>
-    </div>
+<div class="hero-section">
+  <div class="hero-photo">
+    <img class="author-profile-img" src="/assets/img/profile.jpg" alt="{{ site.author }}" />
+  </div>
+  <div class="hero-text">
+    <h1 class="hero-name">{{ site.author }}</h1>
+    <p class="hero-tagline" id="typewriteText"></p>
+    <p class="hero-bio">{{ site.author_bio }}</p>
+  </div>
+</div>
+
+<div class="home-content-area">
+  <section class="posts-section">
+    <h2 class="section-label">Writing</h2>
+    <ul class="article-list">
+      {% for post in site.posts limit:5 %}
+      <li class="article-item">
+        <a href="{{post.url}}" class="article-item-link">
+          <span class="article-item-title">{{post.title}}</span>
+          <span class="article-item-meta">
+            <time datetime="{{ post.date }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
+            {% for cat in post.category limit:1 %}
+            <span class="article-tag">{{cat}}</span>
+            {% endfor %}
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
