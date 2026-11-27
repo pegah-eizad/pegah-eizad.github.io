@@ -8,9 +8,19 @@
   <meta name="description" content="Pegah Lily Eizadkhah, Senior Software Engineer">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
 </head>
 
 <body>
+  <button class="theme-toggle" type="button" aria-label="Switch between light and dark theme">
+    <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+  </button>
+
 
   <div class="wrap page">
     <aside class="sidebar">
@@ -46,7 +56,7 @@
 
       <h2>Technical Interests</h2>
       <p class="interests">
-        Scaling products and engineering teams: AI automation and agentic orchestration, system architecture, cloud
+        Scaling products and engineering teams: AI automation and agentic orchestration, systems architecture, cloud
         infrastructure
         (AWS, Docker, Terraform), CI/CD and observability, and full-stack web and mobile
         development (React, React Native, TypeScript, Node.js, Django).
@@ -104,6 +114,25 @@
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+      function isDark() {
+        var t = root.getAttribute('data-theme');
+        return t ? t === 'dark' : media.matches;
+      }
+      function sync() { root.classList.toggle('is-dark', isDark()); }
+      document.querySelector('.theme-toggle').addEventListener('click', function () {
+        var next = isDark() ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        sync();
+      });
+      media.addEventListener('change', sync);
+      sync();
+    })();
+  </script>
 </body>
 
 </html>

@@ -9,17 +9,6 @@
   --footer-bg: #fafafa;
   --font: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #d6d8da;
-    --muted: #9aa1a6;
-    --link: #6cc3dc;
-    --link-hover: #9ad6e8;
-    --border: #2c3034;
-    --bg: #1b1e21;
-    --footer-bg: #16191b;
-  }
-}
 
 * { box-sizing: border-box; }
 html { font-size: 16px; }
@@ -102,9 +91,6 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
   --c4: #2f9c75; /* green */
   --tint: #eef7fa;
 }
-@media (prefers-color-scheme: dark) {
-  :root { --c1: #5fc0de; --c2: #f08a70; --c3: #b39ddb; --c4: #5cc79e; --tint: #1f2a2f; }
-}
 
 /* Company names in the timeline, cycling through the palette */
 .org { font-weight: 700; }
@@ -137,3 +123,45 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
 /* Larger name in the top bar */
 .site-title { font-size: 1.8em; letter-spacing: -0.01em; }
 @media (max-width: 768px) { .site-title { font-size: 1.4em; } }
+
+/* Dark theme: follows the system unless the visitor picks light or dark with the toggle */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --text: #d6d8da; --muted: #9aa1a6; --link: #6cc3dc; --link-hover: #9ad6e8;
+    --border: #2c3034; --bg: #1b1e21; --footer-bg: #16191b;
+    --c1: #5fc0de; --c2: #f08a70; --c3: #b39ddb; --c4: #5cc79e; --tint: #1f2a2f;
+  }
+}
+:root[data-theme="dark"] {
+    --text: #d6d8da; --muted: #9aa1a6; --link: #6cc3dc; --link-hover: #9ad6e8;
+    --border: #2c3034; --bg: #1b1e21; --footer-bg: #16191b;
+    --c1: #5fc0de; --c2: #f08a70; --c3: #b39ddb; --c4: #5cc79e; --tint: #1f2a2f;
+}
+
+/* Light/dark toggle button */
+.theme-toggle {
+  position: fixed; top: 1em; right: 1em; z-index: 10;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--bg); color: var(--text);
+  font-size: 1.05em; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+.theme-toggle:hover { color: var(--c1); border-color: var(--c1); }
+.theme-toggle .fa-sun { display: none; }
+.is-dark .theme-toggle .fa-sun { display: inline; }
+.is-dark .theme-toggle .fa-moon { display: none; }
+@media (max-width: 768px) {
+  .theme-toggle { position: absolute; top: .75em; right: 16px; }
+  .page { padding-top: 4em; }
+}
+
+/* Phones: photo centered, name and socials centered underneath */
+@media (max-width: 768px) {
+  .sidebar { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .avatar { grid-row: auto; }
+  .avatar img, .avatar .initials { width: 140px; height: 140px; font-size: 2.4em; }
+  .author-name { margin: .6em 0 0; }
+  .author-bio { margin: .2em 0 .8em; }
+  .author-links { flex-wrap: wrap; justify-content: center; gap: .4em 1.2em; }
+}
