@@ -165,3 +165,19 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
   .author-bio { margin: .2em 0 .8em; }
   .author-links { flex-wrap: wrap; justify-content: center; gap: .4em 1.2em; }
 }
+
+/* Phones: GitHub link shows only its icon */
+@media (max-width: 768px) {
+  .author-links .icon-only .link-text { display: none; }
+  .author-links .icon-only i { font-size: 1.4em; margin-right: 0; }
+}
+
+/* Phones: email on its own row, other socials on the row below */
+@media (max-width: 768px) {
+  .author-links li:first-child { flex-basis: 100%; }
+}
+
+/* Phones: sidebar spans full width so its contents center on screen */
+@media (max-width: 768px) {
+  .sidebar { align-self: stretch; width: 100%; }
+}
